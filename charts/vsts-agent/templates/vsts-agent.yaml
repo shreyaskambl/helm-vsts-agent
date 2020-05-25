@@ -82,3 +82,13 @@ spec:
       resources:
         requests:
           storage: {{ .Values.resources.disk | default "50Gi" | quote }}
+  - metadata:
+      name: agent-dir
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 5Gi
+      storageClassName: standard
+      volumeMode: Filesystem
